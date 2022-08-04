@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+
+
+<div class="newListing" align="center">
+	<form method="POST" action="/task/new">
+		<h2>New Task</h2>
+		{{ form.hidden_tag() }}
+		<p>
+			<!-- Task Name<br> -->
+			<br>
+			<div class="form-group" style="width:400px; margin:10px auto;">
+				{{ form.title(class="form-control", placeholder="Task Name", maxlength="30") }}<br>
+			</div>
+			<!-- Brief description -->
+			<div class="form-group" style="width:400px; margin:10px auto;">
+				{{ form.description(class="form-control", placeholder="Brief description") }}<br>
+			</div>
+			
+			<p style='text-align: center;'><button type="button" onclick="show();" id='btn'>+ Add Deadline</button><br><br></p>
+			
+			<!-- Date picker -->
+			<div class="form-group" id="datetimepicker">
+				{{ form.due() }}
+				<br><br><br>
+			</div>
+			
+			<div class="form-group">
+				{{ form.submit(class="myButton", align="center") }}
+			</div>
+		
+	</form>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<script type="text/javascript">
+	document.getElementById("datetimepicker").style.display = 'none';
+	function show(){
+		var elt = document.getElementById("datetimepicker");
+		if (elt.style.display === 'none'){
+			document.getElementById('btn').innerHTML = '- Hide';
+			elt.style.display = 'block';
+		}
+		else{
+			document.getElementById('btn').innerHTML = '+ Add Deadline';
+			document.getElementById('due').value = null;
+			elt.style.display = 'none';
+		}
+	}
+</script>
+
+{% endblock %}

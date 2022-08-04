@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div align="center">
+	<h2>Welcome!</h2><br>
+	<div class='intro'>
+		<p>
+			We provide an easy-to-use, linked calendar and to-do list for you to organize your chaotic life!
+			 The calendar will provide a comprehensive view of your tasks as well as your coming up meetings and events.
+			 The to-do list will show you your upcoming tasks, meetings, and events for the week.
+		</p>
+	</div>
+	<br><br>
+
+	{% if current_user.is_authenticated %}
+		<div>
+            <form method='GET' action ='/todo_list'><button href="/todo_list" class="myButton">GET STARTED!</button><br></form>
+      	</div>
+	{% else %}
+		<div>
+            <form method='GET' action ='/register'><button href="/register" class="myButton">GET STARTED!</button><br></form>
+      	</div>
+	{% endif%}
+</div>
+
+{% endblock content %}

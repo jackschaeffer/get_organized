@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<br>
+<div align="center">
+	<h1 class="landing_text">Get Organized</h1>
+	<br><br><br>
+
+	{% if current_user.is_authenticated %}
+		<div>
+			<form method='GET' action ='/calendar'><button href="/calendar" class="myButton">VIEW CALENDAR</button><br></form>
+			<form method='GET' action ='/todo_list'><button href="/todo_list" class="myButton">VIEW TO DO LIST</button><br></form>
+			<form method='GET' action ='/account'><button href="/account" class="myButton">VIEW ACCOUNT</button><br></form>
+      	</div>
+	{% else %}
+		<form method='GET' action ='/login'><button href="/login" class="myButton">LOGIN</button></form>
+		<form method='GET' action ='/register'><button href="/register" class="myButton">REGISTER</button></form>
+
+	{% endif%}
+	
+
+{% endblock content %}

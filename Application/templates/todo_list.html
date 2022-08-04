@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<!---to do list--->
+<div align="center" style="position:relative;top:-120px;">
+    <div style="position:relative;padding-bottom:15px;top:77px;left:215px;">
+	    <form method='GET' action ='/task/new'>
+	   		<button href="/task/new" class="addButton">+</button>
+	   	</form>
+	</div>
+
+    <div class="row">
+	    <div class="col-sm">
+		    <h2>Tasks</h2>
+	    </div>
+    </div>
+
+    <div class="list-group-flush" id="tasks" style="padding-top: 10px">
+		{% for task in tasks.items %}
+            <div class="list-group-item list-group-item-primary">
+				<a href="/task/{{ task.id }}/delete" style="float: right; font-size: 18px"><i class="fa fa-trash"></i></a>
+				{% if task.complete %}
+	                <a href="/task/{{ task.id }}/complete" style="float: left">
+						<div id="checking" onclick="checked(this)">
+							<i class="fa fa-dot-circle-o"></i>
+						</div>
+					</a>
+	            	<a style="text-decoration: line-through;" href="{{ url_for('view', task_id=task.id )}}" target="_blank">{{ task.title }}</a><br>
+				{% else %}
+					<a href="/task/{{ task.id }}/complete" style="float: left">
+						<div id="checking" onclick="checked(this)">
+							<i class="fa fa-circle-o"></i>
+						</div>
+					</a>
+					<a style="text-decoration: none;" href="{{ url_for('view', task_id=task.id )}}" target="_blank">{{ task.title }}</a><br>
+				{% endif %}
+
+				
+				{% if task.due != None %}
+					Due: {{ task.due.month|string+'/'+task.due.day|string+'/'+ task.due.year|string }}<br>
+				{% else %}
+					&nbsp;&nbsp;&nbsp;&nbsp;Undated<br>
+				{% endif %}
+	        </div>
+		{% endfor %}
+    </div>
+</div>
+    
+<br>
+<p align="center" style="position:relative;top:-120px;">Page:
+    {% for page_num in tasks.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+    	{% if page_num %}
+    		{% if tasks.page == page_num %}
+				<a href="{{ url_for('ToDoList', page=page_num) }}" style="font-weight: bold;">{{ page_num }}</a>
+			{% else %}
+				<a href="{{ url_for('ToDoList', page=page_num) }}" style="font-weight: normal;">{{ page_num }}</a>
+			{% endif %}
+		{% else %}
+			...
+		{% endif %}
+	{% endfor %}
+</p>
+
+{% endblock content %}

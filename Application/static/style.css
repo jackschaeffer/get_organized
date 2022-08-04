@@ -1,0 +1,283 @@
+html{
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: 'blanch';
+  src: url(./fonts/BLANCH_CAPS.otf);
+}
+
+h1 {
+  font-family: 'Now';
+  font-weight: bold;
+  font-size: 70px;
+  text-align: center;
+  color: #333;
+  float: left;
+ }
+.landing_text{
+    font-size: 60px;
+    float: none;
+}
+.taskTitle{
+    font-size: 65px;
+    padding-left: 0;
+    left: 50px;
+    width: 250px;
+    top: 150px;
+}
+
+.list-group-flush{
+    width: 500px;
+    /* padding-left: 30px;
+    padding-right: 30px; */
+
+}
+
+.row{
+    padding-left: 45px;
+    padding-right: 45px;
+    /* background-color: #9C1A1C; */
+    /*background-clip: content-box;*/
+
+}
+
+ h2 {
+  font-family: 'Now';
+  font-weight: bold;
+  font-size: 42px;
+  text-align: center;
+  color: #333;
+ }
+p {
+  font-family: 'Now';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 15px;
+  color: #333;
+}
+.task-block {
+  font-family: 'Now';
+  font-weight: bolder;
+  font-style: normal;
+  font-size: 15px;
+  color: rgb(73, 58, 58);
+}
+
+a {
+  font-family: 'Now';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 15px;
+  color: #333;
+}
+
+span {
+	font-family: 'blanch';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 15px;
+}
+
+body {
+  background-color: #f1f1f1;
+  background-position: center;
+}
+
+.myButton {
+  border:0.1em solid #FFFFFF;
+  border-radius: 5px;
+  margin:0 0.3em 0 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight: bolder;
+  color:#FFFFFF;
+  font-family: 'Now';
+  background: rgba(0,0,0,0.7);
+  text-align:center;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  width: 240px;
+     /* margin-left: 35%; */
+     /* margin-right: 35%; */
+  /* margin-top: 25px; */
+  margin-bottom: 10px;
+  height: 50px;
+  -webkit-transition: all 1s ease;
+  white-space: nowrap;
+}
+.myButton:hover{
+  color: white;
+  background: #002e4d;
+  border-radius: 5px;
+}
+.addtask{
+  cursor:pointer;
+  display: inline-block;
+  position:relative;
+  font-size: 40px;
+  height: 50px;
+  float: right;
+  top: -15px;
+  right: 20%;
+}
+
+.addButton{
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  font-size: 60px;
+  height: 60px;
+}
+
+#email #username {
+  width: 300px;
+}
+
+.theForm {
+  font-family: 'blanch';
+  color: #333333;
+  padding-left: 5px;
+}
+.intro {
+  padding: 0 100px 0;
+  max-width: 900px;
+}
+
+#due {
+  position: absolute;
+  margin: 0 62% 0 ;
+  border: none;
+  border-bottom: 2px solid darkGray;
+  transition: 0.9s ease;
+  width: 265px;
+  background-color: transparent;
+  padding: 20px 0 20px 0;
+  font-family: 'Now';
+  font-weight: bold;
+}
+input {
+  border: none;
+  border-bottom: 2px solid darkGray;
+  transition: 0.9s ease;
+  width: 260px;
+  background-color: transparent;
+  padding: 20px 0 20px 0;
+  font-family: 'Now';
+  font-weight: bold;
+}
+input:focus {
+  outline: none;
+}
+form {
+  font-family: 'Now';
+  font-weight: bold;
+  color: #333333;
+}
+textarea {
+  border: none;
+  border-bottom: 2px solid darkGray;
+  transition: 0.9s ease;
+  width: 260px;
+  background-color: transparent;
+  padding: 20px 0 20px 0;
+  font-family: 'Now';
+  font-weight: bold;
+}
+*:focus {
+  outline: none;
+}
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+input:focus:-ms-input-placeholder { color:transparent; }
+
+/*DROPDOWN*/
+.open-btn {
+  background-color: transparent;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  transition: 0.5s ease;
+  z-index: 56;
+  max-width: 100px;
+
+}
+.datetimepicker {
+  position: absolute;
+  margin: 0 50% 0;
+}
+.dropdown {
+  position: absolute;
+  display: inline-block;
+}
+.dropdown-content .close-btn{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.dropdown-content {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  background-color: #cfcfc4;
+  top: 0;
+  left: 0;
+  z-index: 55;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s ease-out;
+  transition: 0.5s ease-in;
+}
+.dropdown-content a {
+  color: black;
+  padding: 15px 15px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {background-color: white; transition: 1s ease;}
+.dropdown:hover .open-btn {background-color: grey;}
+
+/*Main is so that the side menu pushes the page*/
+#menu{
+    transition: 0.5s ease-out;
+    transition: 0.5s ease-in;
+}
+.container {
+    display: inline-block;
+    cursor: pointer;
+    float: left;
+}
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.idkwhythisisntworking table{
+  background-color: white;
+  font-family: 'Now';
+  width: 80%;
+  border-spacing: 15px;
+  font-size: 30px;
+  border-collapse: collapse;
+}
+.idkwhythisisntworking table tbody tr td{
+  width: 100px;
+  height: 50px;
+  text-align: center;
+}
+.idkwhythisisntworking td, th{
+  border: 1px solid black;
+}
+
+#content{
+  position: absolute;
+}
